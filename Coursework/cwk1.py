@@ -1,19 +1,37 @@
 """
 Introduction to Programming Coursework 1
 
-@author:
+@author: Cal Levitt (sc23cl)
 """
 
 
 def valid_puzzle(puzzle: list) -> bool:
-    # delete this line and pass to write your code here
-    pass
-
+    
+    for i in range(0, len(puzzle) - 2):
+        if type(puzzle) != list:  # use this webiste to learn the type function (https://www.simplilearn.com/tutorials/python-tutorial/python-typeof-function#:~:text=To%20determine%20the%20type%20of,class%20type%20of%20the%20object.)
+            return False
+        elif len(puzzle[i]) != len(puzzle[i + 1]) or type(puzzle[i]) != str:
+            return False
+    
+    return True
 
 def similarity_grouping(data: list) -> list:
-    # delete this line and pass to write your code here
-    pass
+    final_list = []
 
+    for item in data:
+
+        found = False
+
+        for sub in final_list:
+
+            if item in sub:
+                sub.append(item)
+                found = True
+
+        if found == False:
+            final_list.append([item])
+
+    return final_list
 
 def highest_count_items(data: str) -> list:
     # delete this line and pass to write your code here
