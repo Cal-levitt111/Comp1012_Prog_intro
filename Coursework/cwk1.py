@@ -34,10 +34,29 @@ def similarity_grouping(data: list) -> list:
     return final_list
 
 def highest_count_items(data: str) -> list:
-    # delete this line and pass to write your code here
-    pass
 
+    count_list = []
 
+    if type(data) != str:
+        return []
+    
+    data = data.replace(" ", "") # used this to learn replace function to remove spaces from data (https://www.digitalocean.com/community/tutorials/python-remove-spaces-from-string)
+    split_data = data.split(",")
+    unique = list(set(split_data)) # Used to learn how to get unique items from a list using set function (https://www.digitalocean.com/community/tutorials/get-unique-values-from-a-list-in-python)
+    for item in unique:
+        count_list.append([item, split_data.count(item)])
+
+    final = [["", 0]]
+
+    for item in count_list:
+        if item[1] == final[0][1]:
+            final.append(item)
+        elif item[1] > final[0][1]:
+            final = [item]
+
+    return final
+
+    
 def valid_char_in_string(popList: list, charSet: list) -> bool:
     # delete this line and pass to write your code here
     pass
@@ -62,18 +81,18 @@ if __name__ == "__main__":
                'LSBOSEI', 'BOBLLCG', 'LKTEENA', 'ISTREWY',
                'AURAPLE', 'RDATYTB', 'TEYEMRO']
     puzzle4 = 'roundandround'
-    print(valid_puzzle(puzzle1))
-    print(valid_puzzle(puzzle2))
-    print(valid_puzzle(puzzle3))
-    print(valid_puzzle(puzzle4))
+    #print(valid_puzzle(puzzle1))
+    #print(valid_puzzle(puzzle2))
+    #print(valid_puzzle(puzzle3))
+    #print(valid_puzzle(puzzle4))
 
     # sample test for task 1.2
     data1 = [2, 1, 2, 1]
     data2 = [5, 4, 5, 5, 4, 3]
     data3 = [1, 2, 1, 3, 'a', 'b', "a",  'c']
-    print(similarity_grouping(data1))
-    print(similarity_grouping(data2))
-    print(similarity_grouping(data3))
+    #print(similarity_grouping(data1))
+    #print(similarity_grouping(data2))
+    #print(similarity_grouping(data3))
 
     # sample test for task 1.3
     data4 = ("3, 13, 7, 9, 3, 3, 5, 7, 12, 13, 11, 13, 8, 7, 5, 14, 15, 3, 9,"
@@ -107,13 +126,13 @@ if __name__ == "__main__":
     charSet2 = ['a', 'c', 't', 'g']
     charSet3 = ['a', 'c']
     charSet4 = '01'
-    print(valid_char_in_string(popList1, charSet1))
-    print(valid_char_in_string(popList2, charSet2))
-    print(valid_char_in_string(popList3, charSet3))
-    print(valid_char_in_string(popList1, charSet4))
+    #print(valid_char_in_string(popList1, charSet1))
+    #print(valid_char_in_string(popList2, charSet2))
+    #print(valid_char_in_string(popList3, charSet3))
+    #print(valid_char_in_string(popList1, charSet4))
 
     # sample test for task 1.5
-    print(total_price(3))
-    print(total_price(12))
-    print(total_price(15))
-    print(total_price(26))
+    #print(total_price(3))
+    #print(total_price(12))
+    #print(total_price(15))
+    #print(total_price(26))
