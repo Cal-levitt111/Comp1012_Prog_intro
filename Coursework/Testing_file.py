@@ -84,7 +84,7 @@ def valid_char_in_string(popList: list, charSet: list) -> bool:
 
         for letter in list(item):
 
-            if letter not in charSet:
+            if letter.lower() not in charSet:
                 return False
             
     return True
@@ -127,24 +127,30 @@ if __name__ == "__main__":
     puzzle9 = 125
 
 
-    print(valid_puzzle(puzzle1))
-    print(valid_puzzle(puzzle2))
-    print(valid_puzzle(puzzle3))
-    print(valid_puzzle(puzzle4))
-    print(valid_puzzle(puzzle5))
-    print(valid_puzzle(puzzle6))
-    print(valid_puzzle(puzzle7))
-    print(valid_puzzle(puzzle8))
-    print(valid_puzzle(puzzle9))
+    #print(valid_puzzle(puzzle1))
+    #print(valid_puzzle(puzzle2))
+    #print(valid_puzzle(puzzle3))
+    #print(valid_puzzle(puzzle4))
+    #print(valid_puzzle(puzzle5))
+    #print(valid_puzzle(puzzle6))
+    #print(valid_puzzle(puzzle7))
+    #print(valid_puzzle(puzzle8))
+    #print(valid_puzzle(puzzle9))
 
 
     # sample test for task 1.2
     data1 = [2, 1, 2, 1]
     data2 = [5, 4, 5, 5, 4, 3]
     data3 = [1, 2, 1, 3, 'a', 'b', "a",  'c']
+    #data4 = ["n", 1, 3, "n", 3, 3, "m", 1]
+    #data5 = [2, 1, 1, 1, 2, 3, "m"]
     #print(similarity_grouping(data1))
     #print(similarity_grouping(data2))
     #print(similarity_grouping(data3))
+    #print(similarity_grouping(data4))
+    #print(similarity_grouping(data5))
+
+
 
     # sample test for task 1.3
     data4 = ("3, 13, 7, 9, 3, 3, 5, 7, 12, 13, 11, 13, 8, 7, 5, 14, 15, 3, 9,"
@@ -165,9 +171,15 @@ if __name__ == "__main__":
              "tac, caa, aac, ctg, tgt, aag, ttc, ccc, tcc, ctc, cct, aga, gtt,"
              "tga, gaa, cct, ctc, tct, ggt, gcc, tct, ccc, agt, caa, gac, ccc,"
              "cgc")
+    data7 = ("a, a, a, b, a, c, c, a, b, a, c, c, b, a, b, b, a, c, c, c, c,"
+             "a, b")
+    data8 = ("")
     #print(highest_count_items(data4))
     #print(highest_count_items(data5))
     #print(highest_count_items(data6))
+    #print(highest_count_items(data7))
+    #print(highest_count_items(data8))
+
 
     # sample test for task 1.4
     popList1 = ['00000', '00001', '00010', '00011', '00100']
@@ -178,10 +190,14 @@ if __name__ == "__main__":
     charSet2 = ['a', 'c', 't', 'g']
     charSet3 = ['a', 'c']
     charSet4 = '01'
-    #print(valid_char_in_string(popList1, charSet1))
-    #print(valid_char_in_string(popList2, charSet2))
-    #print(valid_char_in_string(popList3, charSet3))
-    #print(valid_char_in_string(popList1, charSet4))
+    popList4 = ["Please", "lseap", "ls", "leas"]
+    charSet5 = ["p", "l", "s", "e", "a"]
+    print(valid_char_in_string(popList1, charSet1))
+    print(valid_char_in_string(popList2, charSet2))
+    print(valid_char_in_string(popList3, charSet3))
+    print(valid_char_in_string(popList1, charSet4))
+    print(valid_char_in_string(popList4, charSet5))
+
 
     # sample test for task 1.5
     #print(total_price(3))

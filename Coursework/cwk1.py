@@ -6,25 +6,30 @@ Introduction to Programming Coursework 1
 
 
 def valid_puzzle(puzzle: list) -> bool:
-    
-    for i in range(0, len(puzzle) - 2):
-        if type(puzzle) != list:  
-            # use this webiste to learn the type function 
-            # (https://www.simplilearn.com/tutorials/python-tutorial/python-typeof-function#:~:text=To%20determine%20the%20type%20of,class%20type%20of%20the%20object.)
-            
+
+    if type(puzzle) is not list:
+
+        return False
+
+    for i in range(0, len(puzzle) - 1):
+        # use this webiste to learn the type function
+        # (https://www.simplilearn.com/tutorials/python-tutorial/python-typeof-function#:~:text=To%20determine%20the%20type%20of,class%20type%20of%20the%20object.)
+
+        if (type(puzzle[i]) is not str or type(puzzle[i + 1]) is not str) or \
+                len(puzzle[i]) != len(puzzle[i + 1]):
+
             return False
-        elif len(puzzle[i]) != len(puzzle[i + 1]) or type(puzzle[i]) != str:
-            return False
-    
+
     return True
 
 
-def similarity_grouping(data: list) -> list: 
-    # Function is inspired from my solution and the example solution of worksheet 4 part 3 of the module content
-    
+def similarity_grouping(data: list) -> list:
+    # Function is inspired from my solution and the example solution
+    # of worksheet 4 part 3 of the module content
+
     final = []
 
-    for item in data: 
+    for item in data:
 
         found = False
 
@@ -34,7 +39,7 @@ def similarity_grouping(data: list) -> list:
                 sub.append(item)
                 found = True
 
-        if found == False:
+        if found is False:
             final.append([item])
 
     return final
@@ -44,18 +49,18 @@ def highest_count_items(data: str) -> list:
 
     count_list = []
 
-    if type(data) != str:
+    if type(data) is not str:
         return []
-    
-    data = data.replace(" ", "") 
-    # used to learn replace function to remove spaces from data 
+
+    data = data.replace(" ", "")
+    # used to learn replace function to remove spaces from data
     # (https://www.digitalocean.com/community/tutorials/python-remove-spaces-from-string)
-    
+
     split_data = data.split(",")
-    unique = list(set(split_data)) 
-    # Used to learn how to get unique items from a list using set function 
+    unique = list(set(split_data))
+    # Used to learn how to get unique items from a list using set function
     # (https://www.digitalocean.com/community/tutorials/get-unique-values-from-a-list-in-python)
-    
+
     for item in unique:
         count_list.append([item, split_data.count(item)])
 
@@ -69,9 +74,9 @@ def highest_count_items(data: str) -> list:
 
     return final
 
-    
+
 def valid_char_in_string(popList: list, charSet: list) -> bool:
-    if type(charSet) != list:
+    if type(charSet) is not list:
         return False
 
     for item in popList:
@@ -80,7 +85,7 @@ def valid_char_in_string(popList: list, charSet: list) -> bool:
 
             if letter not in charSet:
                 return False
-            
+
     return True
 
 
@@ -91,7 +96,7 @@ def total_price(unit: int) -> float:
         final_price = unit * 1.25
 
     elif unit >= 6:
-        six_packs = unit // 6 
+        six_packs = unit // 6
         spare = unit % 6
         final_price = (six_packs * 5) + (spare * 1.25)
         if final_price >= 20:
