@@ -18,22 +18,23 @@ def string_to_morse_code(x):
              ':': '---...', ',': '--..--', '=': '-...-',  '!': '-.-.--',
              '.': '.-.-.-', '-': '-....-', '+': '.-.-.',  '"': '.-..-.',
              '?': '..--..', '/': '-..-.'}
-    
+
     morse_code = ""
-    
+
     if type(x) is not str:
-        
+
         return ("ValueError, string expected")
-    
+
     for character in list(x):
 
-        morse_code += mcode.get(character.upper())
+        if character == " ":
+            morse_code += "x"
 
-        morse_code += "X"
+        else:
+            morse_code += mcode.get(character.upper())
+
+        morse_code += "x"
 
     morse_code = morse_code[:-1]
 
     return morse_code
-
-
-
