@@ -28,12 +28,12 @@ def string_to_morse_code(x):
     for character in list(x):
 
         if character == " ":
-            morse_code += "X"
+            morse_code += " "
 
         else:
             morse_code += mcode.get(character.upper())
 
-        morse_code += "X"
+        morse_code += " "
 
     morse_code = morse_code[:-1]
 
