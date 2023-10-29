@@ -29,7 +29,7 @@ def string_to_morse_code(x):
 
         morse_code += mcode.get(character.upper())
 
-        morse_code += "X"
+        morse_code += "x"
 
     morse_code = morse_code[:-1]
 
