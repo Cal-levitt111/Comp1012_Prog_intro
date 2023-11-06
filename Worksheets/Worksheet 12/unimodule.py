@@ -45,10 +45,12 @@ class Transcript:
                      discovery=True)
 COMP1121 = UniModule("COMP1121", "Databases", 1, 10, PFP=True)
 COMP1211 = UniModule("COMP1211", "Comp. Arch.", 1, 10, grade=80, PFP=True)
-t_student1 = Transcript()
+
 t_student1.add_module(COMP1012)
 t_student1.add_module(COMP1121)
 t_student1.add_module(COMP1211)
-t_student1.add_module("test1")
 t_student1.add_module(COMP1211)
-t_student1.print_transcript()"""
+t_student1.print_transcript()
+"""
+t_student1 = Transcript()
+t_student1.add_module("test1")
