@@ -27,9 +27,9 @@ class Transcript:
 
     def add_module(self, item) -> None:
         if item in self.modules:
-            print(ValueError("module already exists!"))
+            raise ValueError("module already exists!")
         elif not isinstance(item, UniModule):
-            print(ValueError("expected item be an instance of UniModule"))
+            raise ValueError("expected item be an instance of UniModule")
         else:
             self.modules.append(item)
 
