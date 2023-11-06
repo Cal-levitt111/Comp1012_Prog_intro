@@ -38,5 +38,3 @@ def string_to_morse_code(x):
     morse_code = morse_code[:-1]
 
     return morse_code
-
-print(string_to_morse_code("Hello world!"))
