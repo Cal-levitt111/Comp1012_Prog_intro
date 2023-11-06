@@ -1,6 +1,7 @@
 class UniModule:
 
-    def __init__(self, code, name, year, credit, grade=0, PFP=False, discovery=False) -> None:
+    def __init__(self, code, name, year, credit, grade=0, PFP=False,
+                 discovery=False) -> None:
         self.code = code
         self.name = name
         self.year = year
@@ -17,7 +18,9 @@ class UniModule:
         if not self.discovery:
             st_Disc = "NDisc"
 
-        print(self.code+":"+self.name+":Y"+str(self.year)+":"+str(self.credit)+"CR:"+str(self.grade)+"GRD:"+st_PFP+":"+st_Disc)
+        print(self.code + ":" + self.name+":Y" + str(self.year) + ":" +
+              str(self.credit) +
+              "CR:" + str(self.grade) + "GRD:" + st_PFP+":" + st_Disc)
 
 
 class Transcript:
@@ -38,7 +41,8 @@ class Transcript:
             item.display_details()
 
 
-COMP1012 = UniModule("COMP1011", "Intro to Prog.", 1, 10, grade=75, discovery=True)
+COMP1012 = UniModule("COMP1011", "Intro to Prog.", 1, 10, grade=75,
+                     discovery=True)
 COMP1121 = UniModule("COMP1121", "Databases", 1, 10, PFP=True)
 COMP1211 = UniModule("COMP1211", "Comp. Arch.", 1, 10, grade=80, PFP=True)
 t_student1 = Transcript()
