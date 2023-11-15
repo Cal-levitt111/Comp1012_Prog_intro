@@ -1,4 +1,4 @@
-def ducky(iterable):
+def sum_iter_value(iterable):
     iter_to_test = iterable.replace(" ", ",").split(",")
     sum = 0
     for item in iter_to_test:
