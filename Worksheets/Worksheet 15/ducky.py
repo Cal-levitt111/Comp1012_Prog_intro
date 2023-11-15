@@ -1,4 +1,4 @@
-class Ducky:
+class ducky:
 
     def __init__(self) -> None:
         pass
