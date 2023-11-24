@@ -11,6 +11,10 @@ def valid_puzzle(puzzle: list) -> bool:
 
         return False
 
+    elif len(puzzle) <= 1:
+
+        return False
+
     for i in range(0, len(puzzle) - 1):
         # use this webiste to learn the type function
         # (https://www.simplilearn.com/tutorials/python-tutorial/python-typeof-function#:~:text=To%20determine%20the%20type%20of,class%20type%20of%20the%20object.)
@@ -18,10 +22,6 @@ def valid_puzzle(puzzle: list) -> bool:
         if (type(puzzle[i]) is not str or type(puzzle[i + 1]) is not str) or \
                 len(puzzle[i]) != len(puzzle[i + 1]):
 
-            return False
-        
-        elif len(puzzle) <= 1:
-            
             return False
 
     return True
@@ -35,7 +35,7 @@ def similarity_grouping(data: list) -> list:
 
     if type(data) is not list:
         return final
-    
+
     for item in data:
 
         if str(item).isnumeric():
@@ -44,7 +44,7 @@ def similarity_grouping(data: list) -> list:
         found = False
 
         for sub in final:
-            
+
             if item in sub:
                 sub.append(item)
                 found = True
@@ -120,17 +120,14 @@ def total_price(unit: int) -> float:
 
 if __name__ == "__main__":
     # sample test for task 1.1
-    puzzle1 = ['RUNAROUNDDL', 'EDCITOAHCYV', 'ZYUWSWEDZYA', 'AKOTCONVOYV',
-               'LSBOSEVRUCI', 'BOBLLCGLPBD', 'LKTEENAGEDL', 'ISTREWZLCGY',
-               'AURAPLEBAYG', 'RDATYTBIWRA', 'TEYEMROFINU']
+    puzzle1 = ["hey"]
 
-    puzzle2 = ['NAROUNDDL', 'EDCIT', 'UWSWEDZYA', 'OTCONVOYV',
-               'BOSEVRUCI', 'BLLCGLPBD', 'TEENAGEDL', 'TREWZLCGY',
-               'RAPLEBAYG', 'ATYTBIWRA', 'YEMROFINU']
+    puzzle2 = []
 
     puzzle3 = ['RUNAROU', ['EDCITOA'], ('ZYUWSWE'), 'AKOTCYV',
                'LSBOSEI', 'BOBLLCG', 'LKTEENA', 'ISTREWY',
                'AURAPLE', 'RDATYTB', 'TEYEMRO']
+
     puzzle4 = 'roundandround'
     print(valid_puzzle(puzzle1))
     print(valid_puzzle(puzzle2))
