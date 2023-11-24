@@ -19,6 +19,10 @@ def valid_puzzle(puzzle: list) -> bool:
                 len(puzzle[i]) != len(puzzle[i + 1]):
 
             return False
+        
+        elif len(puzzle) <= 1:
+            
+            return False
 
     return True
 
@@ -29,12 +33,18 @@ def similarity_grouping(data: list) -> list:
 
     final = []
 
+    if type(data) is not list:
+        return final
+    
     for item in data:
+
+        if str(item).isnumeric():
+            item = int(item)
 
         found = False
 
         for sub in final:
-
+            
             if item in sub:
                 sub.append(item)
                 found = True
@@ -52,7 +62,7 @@ def highest_count_items(data: str) -> list:
     if type(data) is not str:
         return []
 
-    data = data.replace(" ", "")
+    data = data.replace(", ", ",")
     # used to learn replace function to remove spaces from data
     # (https://www.digitalocean.com/community/tutorials/python-remove-spaces-from-string)
 
@@ -76,10 +86,13 @@ def highest_count_items(data: str) -> list:
 
 
 def valid_char_in_string(popList: list, charSet: list) -> bool:
-    if type(charSet) is not list:
+    if type(charSet) is not list or type(popList) is not list:
         return False
 
     for item in popList:
+
+        if type(item) is not str:
+            return False
 
         for letter in list(item):
 
