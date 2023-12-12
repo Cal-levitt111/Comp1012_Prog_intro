@@ -12,7 +12,7 @@ import csv
 
 class Diabetes:
     def __init__(self, filepath: str) -> None:
-        self.headers = []
+        self.header = []
         self.data = []
         try:
             with open(filepath) as diabetes_csv:
