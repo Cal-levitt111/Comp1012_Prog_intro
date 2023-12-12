@@ -20,7 +20,7 @@ class Diabetes:
                 line = 0
                 for row in reader:
                     if line == 0:
-                        self.headers = row
+                        self.header = row
                         line += 1
                     else:
                         self.data.append(row)
