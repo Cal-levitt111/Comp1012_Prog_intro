@@ -31,14 +31,14 @@ class Diabetes:
     def get_dimension(self) -> list:
         dimensions = []
         dimensions.append(len(self.data))
-        dimensions.append(len(self.headers))
+        dimensions.append(len(self.header))
         return dimensions
 
     def web_summary(self, filepath: str) -> None:
         data_count = []
         positiveDataCount = []
         negativeDataCount = []
-        for item in self.headers[2:-1]:
+        for item in self.header[2:-1]:
             positiveDataCount.append([item, 0, 0])
             negativeDataCount.append([item, 0, 0])
         for row in self.data:
