@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Morse Code</title>
+<script>
+
+function encdec(){
+	let str_input = document.getElementById("input").value;
+	let operation = document.getElementById("operation").value;
+	
+	const mcode = {
+      'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+      'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+      'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+      'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+      'Y': '-.--', 'Z': '--..', ' ': ' ', '0': '-----',
+      '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+      '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+      '&': '.-...', "'": '.----.', '@': '.--.-.', ')': '-.--.-', '(': '-.--.',
+      ':': '---...', ',': '--..--', '=': '-...-', '!': '-.-.--', '.': '.-.-.-',
+      '-': '-....-', '+': '.-.-.', '"': '.-..-.', '?': '..--..', '/': '-..-.'
+    }
+	
+	if (operation == "enc"){
+    answer = enc(mcode, str_input.toUpperCase());
+  }
+
+  else if(operation == "dec"){
+    answer = dec(mcode, str_input);
+  }
+
+	document.getElementById("output").innerHTML = answer;
+}
+
+function enc(mcode, str_input){
+  let enc_str = "";
+  let valid = 1;
+  for (let i = 0; i < str_input.length; i++) {
+    const char = str_input[i];
+    if (!(char in mcode)) {
+      valid = 0;
+    }
+    else{
+      if (char != " "){
+      enc_str += mcode[char];
+      }
+      if (i != str_input.length-1) {
+        enc_str += " ";
+      }
+    }
+
+  }
+  if (Boolean(valid)) {  
+    return enc_str;
+    }
+  else {
+    alert("Invalid input!");
+    return "";
+  }
+}
+
+function dec(mcode, str_input){
+  // To help find keys from the value provided i use this guide:
+  // https://www.geeksforgeeks.org/how-to-get-a-key-in-a-javascript-object-by-its-value/
+  let valid = 1;
+  let dec_str = "";
+  const words = str_input.split("  ");
+
+  for (let i = 0; i < words.length; i++) {
+    const characters = words[i].split(" ");
+
+    for (let n = 0; n < characters.length; n++) {
+      const char = characters[n];
+      // Finds the key in the object that corresponds to the character giben
+      if(char == ""){
+        dec_char = " ";
+      }
+      else{
+        dec_char = Object.keys(mcode).find(key => mcode[key] === char)
+      }
+      if (dec_char == undefined) {
+        valid = 0;
+      }
+      dec_str += dec_char;
+    }
+
+    dec_str += " "
+    
+  }
+  if(Boolean(valid)){
+    return dec_str.slice(0, -1);
+  }
+  else {
+    alert("Invalid input!")
+    return "";
+  }
+}
+
+</script>
+</head>
+<body>
+<H1>Morse code encoder/decoder</H1>
+<h3>@author: Cal Levitt </h3>
+<div>
+<form>
+<p> Enter a string</p>
+<p> <textarea id="input" rows='5' cols='50'></textarea> </p>
+<p>
+<div id="optionloc" style="position:absolute; top:190px; left:240px;">
+<select id="operation">
+<option value="enc">Encode</option>
+<option value="dec">Decode</option>
+</select>
+</div>
+<div id="buttonloc" style="position:absolute; top:190px; left:320px;">
+<button type="button" id="submit" onclick=encdec()>Submit</button>
+</div>
+</p>
+
+<div>
+<p>Encoded/decoded Morse code: </p>
+<textarea id="output" rows='5' cols='50' readonly></textarea>
+</div>
+</form>
+</div>
+</body>
+</html>
